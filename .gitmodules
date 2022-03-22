@@ -1,9 +1,9 @@
 [submodule "bp-yocto-layer"]
 	path = bp-yocto-layer
-	url = git@github.com:collinmay/bp-yocto-layer.git
+	url = https://github.com/collinmay/bp-yocto-layer.git
 [submodule "meta-linux-mainline"]
 	path = meta-linux-mainline
 	url = https://git.sr.ht/~pbarker/meta-linux-mainline
 [submodule "poky"]
 	path = poky
-	url = git://git.yoctoproject.org/poky.git
+	url = https://git.yoctoproject.org/git/poky
