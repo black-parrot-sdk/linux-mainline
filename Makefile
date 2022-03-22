@@ -3,8 +3,11 @@ export MACHINE = blackparrot
 
 IMAGES_DIR = build/tmp/deploy/images/blackparrot
 
-yocto.riscv: work/flash.o work/fw_payload.o final_link.T
+yocto.riscv: .toolchain_check work/flash.o work/fw_payload.o final_link.T
 	riscv64-unknown-linux-gnu-ld -T final_link.T work/flash.o work/fw_payload.o -o yocto.riscv
+
+.toolchain_check:
+	riscv64-unknown-linux-gnu-objcopy --version > .toolchain_check
 
 run_dromajo: yocto.riscv
 	dromajo --host --enable_amo yocto.riscv

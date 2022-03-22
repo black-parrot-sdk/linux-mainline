@@ -3,3 +3,4 @@ build/
 work/
 *~
 yocto.riscv
+.toolchain_check
