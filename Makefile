@@ -1,4 +1,3 @@
-export PATH := $(realpath work/bin/):${PATH}
 export MACHINE = blackparrot
 
 IMAGES_DIR = build/tmp/deploy/images/blackparrot
@@ -18,15 +17,14 @@ work/flash.o: ${IMAGES_DIR}/core-image-full-cmdline-blackparrot.ext4
 work/fw_payload.o: ${IMAGES_DIR}/fw_payload.bin
 	riscv64-unknown-linux-gnu-objcopy --input-target binary --output-target riscv64-unknown-linux-gnu ${IMAGES_DIR}/fw_payload.bin work/fw_payload.o
 
-${IMAGES_DIR}/core-image-full-cmdline-blackparrot.ext4 ${IMAGES_DIR}/fw_payload.bin: work/bin/tar build/conf/bblayers.conf
+${IMAGES_DIR}/core-image-full-cmdline-blackparrot.ext4 ${IMAGES_DIR}/fw_payload.bin: poky/scripts/tar build/conf/bblayers.conf
 	source poky/oe-init-build-env; ulimit -u 32768; bitbake core-image-full-cmdline
 
 build/conf/bblayers.conf:
 	source poky/oe-init-build-env; bitbake-layers add-layer ../meta-linux-mainline; bitbake-layers add-layer ../bp-yocto-layer
 
-work/bin/tar: work/build/tar/src/tar
-	mkdir -p $(@D)
-	cp work/build/tar/src/tar work/bin/tar
+poky/scripts/tar: work/build/tar/src/tar
+	cp work/build/tar/src/tar poky/scripts/tar
 
 work/build/tar/src/tar: work/build/tar/Makefile
 	mkdir -p $(@D)
