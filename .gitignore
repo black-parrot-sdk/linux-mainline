@@ -1,0 +1,5 @@
+dromajo.dtb
+build/
+work/
+*~
+yocto.riscv
