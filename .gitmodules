@@ -1,6 +1,6 @@
 [submodule "bp-yocto-layer"]
 	path = bp-yocto-layer
-	url = https://github.com/collinmay/bp-yocto-layer.git
+	url = https://github.com/black-parrot-sdk/bp-yocto-layer.git
 [submodule "meta-linux-mainline"]
 	path = meta-linux-mainline
 	url = https://git.sr.ht/~pbarker/meta-linux-mainline
