@@ -3,7 +3,7 @@
 	url = https://github.com/black-parrot-sdk/bp-yocto-layer.git
 [submodule "meta-linux-mainline"]
 	path = meta-linux-mainline
-	url = https://git.sr.ht/~pbarker/meta-linux-mainline
+	url = https://github.com/black-parrot-sdk/meta-linux-mainline.git
 [submodule "poky"]
 	path = poky
 	url = https://git.yoctoproject.org/git/poky
